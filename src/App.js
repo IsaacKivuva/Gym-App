@@ -1,3 +1,9 @@
+
+import Navbar from "./components/Navbar";
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import Classes from "./pages/classes";
+
 import Contact from "./Pages/Contact";
 import Home from "./Pages/Home";
 import Login from "./Pages/Login";
@@ -13,9 +19,11 @@ import GalleryPage1 from "./Pages/Gallery/GalleryPage1";
 import GalleryPage2 from "./Pages/Gallery/GalleryPage2";
 import About from "./Pages/About";
 
+
 function App() {
   return (
     <>
+
       <AuthContextProvider>
         <Navbar />
         <Routes>
@@ -34,7 +42,7 @@ function App() {
           </Route>
         </Routes>
       </AuthContextProvider>
-    </>
+   </>
   );
 }
 

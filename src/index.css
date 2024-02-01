@@ -99,6 +99,9 @@ body {
 }
 
 .card-item-div:hover {
+
+  background-image: url('../src/images/who-we-are/info-card-bg.jpg');
+
   color: white;
 }
 
