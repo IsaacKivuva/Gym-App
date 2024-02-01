@@ -39,7 +39,8 @@ function NavList() {
           <Link onClick={goTop} to={"/workout"}>
            My workouts
           </Link>
-        </li>   
+        </li>
+        
         <li
           style={{ transition: "all 0.3s" }}
           className=" cursor-pointer hover:text-[#007FFF]"

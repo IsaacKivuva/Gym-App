@@ -13,16 +13,16 @@ import Trainers from "../components/Trainers/Trainers";
 function Home() {
   return (
     <>
-      {/* <Hero />
+      <Hero />
       <About />
       <Featured />
       <ChooseUs />
       <Trainers />
+      <BmiCalc />
       <Testimonials />
       <Gallery />
-      <BmiCalc />
       <Pricing />
-      <CtaBanner /> */}
+      <CtaBanner />
       <Footer />
     </>
   );

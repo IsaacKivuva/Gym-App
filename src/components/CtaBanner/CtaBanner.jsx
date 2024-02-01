@@ -12,7 +12,7 @@ function CtaBanner() {
           <MainButton
             color={`text-white`}
             bg={`bg-[#007FFF]`}
-            text="purchase now"
+            text="contact us now"
             arrowColor={`text-white`}
             cN="pricing-cta cta-banner-btn"
             goTo="/contact"

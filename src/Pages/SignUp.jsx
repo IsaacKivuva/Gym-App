@@ -1,5 +1,5 @@
 import { useState } from "react";
-// import { UserAuth } from "../context/AuthContext";
+import { UserAuth } from "../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import Footer from "../components/Footer/Footer";
 
@@ -7,7 +7,8 @@ function Signup() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const { signUp } = UserAuth();
+  const [successMessage, setSuccessMessage] = useState(""); // New state variable
+  const { signUp } = UserAuth();
   const navigate = useNavigate();
 
   const goTop = () => {
@@ -33,10 +34,11 @@ function Signup() {
         const data = await response.json();
         console.log(data); // Log the response from the backend
 
-        // After successful registration, you may want to handle it accordingly
-        navigate("/home")
+        // Set success message and navigate to login page
+        setSuccessMessage("You have successfully signed up!");
+        navigate("/login");
         goTop();
-      } else { 
+      } else {
         console.log("Registration failed");
       }
     } catch (error) {
@@ -63,7 +65,7 @@ function Signup() {
             </label>
             <input
               className="text-[1.7rem] px-8 py-4 mb-10 w-full outline-[#ff0336] "
-              placeholder="john Doe"
+              placeholder="john"
               type="text"
               onChange={(e) => setName(e.target.value)}
             ></input>
@@ -72,7 +74,7 @@ function Signup() {
             </label>
             <input
               className="text-[1.7rem] px-8 py-4 mb-10 w-full outline-[#ff0336] "
-              placeholder="gymate@gymail.com"
+              placeholder="hercules@gmail.com"
               type="email"
               onChange={(e) => setEmail(e.target.value)}
             ></input>
@@ -87,24 +89,29 @@ function Signup() {
               onChange={(e) => setPassword(e.target.value)}
             ></input>
 
+            {/* Success message */}
+            {successMessage && (
+              <p className="text-green-500 text-[2rem] mb-5">{successMessage}</p>
+            )}
+
             <button
               type="submit"
-              className="bg-[#ff0336] text-white py-4 font-medium text-[2rem] w-full mt-10"
+              className="bg-[#007FFF] text-white py-4 font-medium text-[2rem] w-full mt-10"
             >
               Sign Up
             </button>
             <div className="flex gap-4 items-center mt-16 min450:flex-col">
-              <p className="text-white text-[1.5rem]">Already have account?</p>
+              <p className="text-white text-[1.5rem]">Already have an account?</p>
               <Link
                 to="/login"
-                className="text-[#ff0336] font-bold text-[1.5rem]"
+                className="text-[#007FFF] font-bold text-[1.5rem]"
               >
                 Sign In
               </Link>
             </div>
             <p className="text-[#ffffffbc] text-[1.3rem] mt-5">
-              ( Make <span className="text-[#ff0336]">new Accout</span> or go to
-              <span className="text-[#ff0336]"> Sign In</span> Page for Test
+              ( Make <span className="text-[#007FFF]">new Account</span> or go to
+              <span className="text-[#007FFF]"> Sign In</span> Page for Test
               Account )
             </p>
           </form>

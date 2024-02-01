@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 
 function Navbar() {
   const [sticky, setSticky] = useState(false);
-  const [hamburger, setHamburger] = useState(false);
 
   // sticky navbar - bg black
   const handleScroll = () => {
@@ -24,11 +23,6 @@ function Navbar() {
       top: 0,
       behavior: "smooth",
     });
-  };
-  // hamburger menu
-  const hamburgerMenu = () => {
-    setHamburger(!hamburger);
-   
   };
 
   return (
@@ -50,92 +44,6 @@ function Navbar() {
         </div>
         <div className="flex items-center gap-10">
           <div className="flex gap-10">
-            {/* mobile menu -------------- */}
-
-            {/* hamburger menu */}
-            <div
-              className={`${hamburger ? "flex":'hidden'} top-0  flex-col fixed w-full left-0 h-screen bg-white z-[9999999999] py-[60px] px-[40px] ease-in-out duration-500  ${hamburger ? "left-0" : "-left-[100%]"
-                }`}
-            >
-              <i
-                onClick={hamburgerMenu}
-                className="fa-solid fa-xmark text-[#007FFF] text-[3.3rem] cursor-pointer self-end"
-              ></i>
-
-              {/* links */}
-              <ul className="text-center flex flex-col gap-10 absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]">
-                <li onClick={hamburgerMenu}>
-                  <a
-                    onClick={() => window.top(0, 0)}
-                    className="text-[2rem] font-medium text-[#007FFF] ease-in duration-200"
-                    href="/home"
-                  >
-                    Home
-                  </a>
-                </li>
-                <li onClick={hamburgerMenu}>
-                  <Link
-                    onClick={() => window.top(0, 0)}
-                    className="text-[2rem] font-medium text-[#007FFF] ease-in duration-200"
-                    to="/about"
-                  >
-                    About
-                  </Link>
-                </li>
-                <li onClick={hamburgerMenu}>
-                  <Link
-                    onClick={() => window.top(0, 0)}
-                    className="text-[2rem] font-medium text-[#007FFF] ease-in duration-200"
-                    to="/workout"
-                  >
-                    My workout
-                  </Link>
-                </li>
-                <li onClick={hamburgerMenu}>
-                  <Link
-                    onClick={() => window.top(0, 0)}
-                    className="text-[2rem] font-medium text-[#007FFF] ease-in duration-200"
-                    to="/gallery/page-1"
-                  >
-                    Gallery
-                  </Link>
-                </li>
-                <li onClick={hamburgerMenu}>
-                  <Link
-                    onClick={() => window.top(0, 0)}
-                    className="text-[2rem] font-medium text-[#007FFF] ease-in duration-200"
-                    to="/contact"
-                  >
-                    Contact
-                  </Link>
-                </li>
-                <li onClick={hamburgerMenu}>
-                  <Link
-                    onClick={() => window.top(0, 0)}
-                    className="text-[2rem] font-medium text-[#007FFF] ease-in duration-200"
-                    to="/pricing"
-                  >
-                    Pricing
-                  </Link>
-                </li>
-                <li onClick={hamburgerMenu}>
-                  <Link
-                    onClick={() => window.top(0, 0)}
-                    className="text-[2rem] font-medium text-[#007FFF] ease-in duration-200"
-                    to="/classes"
-                  >
-                    Classes
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-
-            {/* hamburger */}
-            <i
-              onClick={hamburgerMenu}
-              className="fa-bars fa-solid hidden text-white text-4xl cursor-pointer hover:text-[#007FFF] ease-in duration-200"
-            ></i>
             {/* account */}
             <Link onClick={goTop} to="/signup" title="signup_button">
               <i className="fa-regular fa-user  text-white text-4xl cursor-pointer hover:text-[#007FFF] ease-in duration-200"></i>
@@ -145,7 +53,7 @@ function Navbar() {
           <div className="border-[rgb(255,255,255,0.3)] border-solid border-2  p-2 rounded-md min620:hidden">
             <Link
               onClick={goTop}
-              to={"/contact"}
+              to={"/classes"}
               className="flex items-center "
             >
               <i

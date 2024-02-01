@@ -26,7 +26,7 @@ function ClassesBox({ bgImg, title, trainer, date }) {
             color={`text-black`}
             bg={`bg-white`}
             text="join now"
-            goTo="/contact"
+            goTo="/workout"
           />
         </div>
       </div>

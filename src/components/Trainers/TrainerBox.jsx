@@ -61,12 +61,6 @@ function TrainerBox() {
               <p className="font-medium text-[1.5rem] text-[#646464]">
                 {train.job}
               </p>
-              <div className="flex gap-8 text-[#646464] w-full justify-center mt-5 text-[1.6rem]">
-                <i className="fa-brands fa-facebook-f"></i>
-                <i className="fa-brands fa-twitter"></i>
-                <i className="fa-brands fa-instagram"></i>
-                <i className="fa-regular fa-envelope"></i>
-              </div>
             </div>
           </div>
         ))}

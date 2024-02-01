@@ -1,13 +1,13 @@
 // Login.js
 import { useState } from "react";
-// import { UserAuth } from "../context/AuthContext";
+import { UserAuth } from "../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import Footer from "../components/Footer/Footer";
 
-function Login() {
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const { logIn } = UserAuth();
+  const { logIn } = UserAuth();
   const navigate = useNavigate();
   const [error, setError] = useState("");
 
@@ -20,31 +20,32 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
+
     try {
-      // Make a POST request to the Flask backend
       const response = await fetch("http://localhost:5000/members/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-       body: JSON.stringify({ email, password }),
-
+        body: JSON.stringify({ email, password }),
       });
 
       if (response.ok) {
-        const data = await response.json();
-        console.log(data); // Log the response from the backend
-
-        // After successful login, you may want to handle it accordingly
-        navigate("/home");
+        const user = await response.json();
+        localStorage.setItem("user", JSON.stringify(user));
+        navigate("/workout");
         goTop();
       } else {
-        const errorData = await response.json();
-        console.log(errorData); // Log the error message from the backend
-        setError(errorData.message);
+        if (response.status === 404) {
+          setError("User not found. Please check your credentials.");
+        } else {
+          const errorData = await response.json();
+          setError(errorData.message);
+        }
       }
     } catch (error) {
       console.error("Error during login:", error);
+      setError("An error occurred during login. Please try again.");
     }
   };
 
@@ -62,17 +63,17 @@ function Login() {
             onSubmit={handleSubmit}
             className="flex flex-col py-40 px-20 bg-black w-[55rem] min450:w-full  shadow-xl"
           >
-            {error ? (
+            {error && (
               <p className="text-white bg-[#ff0336] font-bold text-[1.6rem] px-10 py-5 text-center mb-10">
                 {error}
               </p>
-            ) : null}
+            )}
             <label className="text-[2rem] text-white mb-3 font-medium ">
               Email
             </label>
             <input
               className="text-[1.7rem] px-8 py-4 mb-10 w-full outline-[#ff0336] "
-              placeholder="gymate@gymail.com"
+              placeholder="hercules@gmail.com"
               type="email"
               onChange={(e) => setEmail(e.target.value)}
             ></input>
@@ -89,30 +90,25 @@ function Login() {
 
             <button
               type="submit"
-              className="bg-[#ff0336] text-white py-4 font-medium text-[2rem] w-full mt-10"
+              className="bg-[#007FFF] text-white py-4 font-medium text-[2rem] w-full mt-10"
             >
               Sign In
             </button>
             <div className="flex gap-4 items-center mt-16 min450:flex-col">
-              <p className="text-white text-[1.5rem]">New to Gymate?</p>
+              <p className="text-white text-[1.5rem]">New to Hercules?</p>
               <Link
                 to="/signup"
-                className="text-[#ff0336] font-bold text-[1.5rem]"
+                className="text-[#007FFF] font-bold text-[1.5rem]"
               >
                 Sign Up
               </Link>
             </div>
-            <p className="text-[#ffffffbc] text-[1.4rem] mt-3">
-              <span className="text-[#ff0336]">Test Account</span> -
-              gymate@gymail.com <span className="text-[#ff0336]"> / </span>
-              testpassword123
-            </p>
           </form>
         </div>
         <Footer />
       </section>
     </>
   );
-}
+};
 
 export default Login;

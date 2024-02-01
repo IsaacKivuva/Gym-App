@@ -28,15 +28,30 @@ function Pricing() {
               Exclusive Pricing Plan
             </h2>
             <p className="text-[#646464] font-medium text-[15px] ">
-              Hercules an unknown printer took a galley of type and scrambled
-              <br /> make a type specimen book.
+              Hercules a renowned fitness center within Nairobi
+              <br /> offers pocket-friendly prices to our clients.
             </p>
           </div>
           {/* pricing boxes */}
           <div className="flex gap-10 mt-32 relative z-[2] md1000:flex-col md1000:items-center ">
-            <PricingBox img={Img1} price="39" />
-            <PricingBox img={Img2} price="65" />
-            <PricingBox img={Img3} price="100" />
+            <PricingBox
+              img={Img1}
+              title="Beginners"
+              price="3000"
+              text={['Free Hand', 'Gym Fitness', 'Weight Loss', 'Personal Trainer', 'Cycling']}
+            />
+            <PricingBox
+              img={Img2}
+              title="Intermediate"
+              price="6500"
+              text={['Advanced Workout', 'Nutrition Consultation', 'Personalized Plans']}
+            />
+            <PricingBox
+              img={Img3}
+              title="Advanced"
+              price="9000"
+              text={['Pro-Level Training', 'Diet Planning', '24/7 Gym Access']}
+            />
           </div>
           <img
             src={BgDumbell}
