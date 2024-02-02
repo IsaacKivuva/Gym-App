@@ -6,7 +6,7 @@ import Shape from "../../images/trainers/shape.png";
 import { useState } from "react";
 
 function TrainerBox() {
-  const [imgHover, setImgHover] = useState(false);
+  const [, setImgHover] = useState(false);
 
   const hoverBox = () => {
     setImgHover(true);

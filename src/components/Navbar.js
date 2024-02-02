@@ -6,8 +6,7 @@ import NavList from "./NavbarList";
 function Navbar() {
   const [spin, setSpin] = useState(false);
   const [sticky, setSticky] = useState(false);
-  const [sidebar, setSideBar] = useState(false);
-  const [hamburger, setHamburger] = useState(false);
+  // const [hamburger, setHamburger] = useState(false);
 
   const joinSpin = () => {
     setSpin(true);
@@ -38,9 +37,9 @@ function Navbar() {
 
 
   // hamburger menu
-  const hamburgerMenu = () => {
-    setHamburger(!hamburger);
-  };
+  // const hamburgerMenu = () => {
+  //   setHamburger(!hamburger);
+  // };
 
   return (
     <>
