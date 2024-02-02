@@ -12,7 +12,7 @@ const WorkoutPlan = () => {
   const [selectedExercise, setSelectedExercise] = useState('');
   const [time, setTime] = useState('');
   const [day, setDay] = useState(new Date());
-  const [selectedMemberId, setSelectedMemberId] = useState('');
+  const [selectedMemberId] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {

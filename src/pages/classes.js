@@ -3,18 +3,18 @@ import ClassesBox from "../components/ClassesBox";
 // import Footer from "../components/Footer/Footer";
 
 function Classes() {
-  const [load, setLoad] = useState(true);
+  const [load] = useState(true);
 
-  const loadMore = () => {
-    setLoad(!load);
-  };
+  // const loadMore = () => {
+  //   setLoad(!load);
+  // };
 
-  const goTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
+  // const goTop = () => {
+  //   window.scrollTo({
+  //     top: 0,
+  //     behavior: "smooth",
+  //   });
+  // };
 
   return (
     <>
