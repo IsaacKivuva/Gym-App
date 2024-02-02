@@ -13,7 +13,7 @@ import Trainers from "../components/Trainers/Trainers";
 function Home() {
   return (
     <>
-      <Hero />
+      {/* <Hero />
       <About />
       <Featured />
       <ChooseUs />
@@ -22,7 +22,7 @@ function Home() {
       <Gallery />
       <BmiCalc />
       <Pricing />
-      <CtaBanner />
+      <CtaBanner /> */}
       <Footer />
     </>
   );

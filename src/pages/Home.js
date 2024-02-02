@@ -3,6 +3,8 @@ import ChooseUs from "../components/ChooseUs"
 import Trainers from "../components/Trainers"
 import Testimonials from "../components/Testimonials"
 import Gallery from "../components/Gallery"
+import Footer from "../components/Footer/Footer"
+import BmiCalc from "../components/BMI/BmiCalc"
 
 
 function Home(){
@@ -12,7 +14,9 @@ function Home(){
             <ChooseUs/>
             <Trainers/>
             <Testimonials/>
+            <BmiCalc/>
             <Gallery/>
+            <Footer/>
         </>
     )
 }
