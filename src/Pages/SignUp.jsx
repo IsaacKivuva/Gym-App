@@ -2,6 +2,7 @@ import { useState } from "react";
 import { UserAuth } from "../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import Footer from "../components/Footer/Footer";
+import {supabase} from "../supabaseCLient"
 
 function Signup() {
   const [name, setName] = useState("");
@@ -21,15 +22,25 @@ function Signup() {
     e.preventDefault();
 
     try {
+
+      const { user, error } = await supabase.auth.signUp({
+        email,
+        password,
+      });
       // Make a POST request to the Flask backend
-      const response = await fetch("http://localhost:5000/members/signup", {
+      const response = await fetch(`${process.env.REACT_APP_GYM_BACKEND}/members/signup`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ name, email, password }),
       });
-
+      
+       if (error) {
+        console.error('Error signing up:', error.message);
+      } else {
+        console.log('User signed up successfully:', user);
+      }
       if (response.ok) {
         const data = await response.json();
         console.log(data); // Log the response from the backend
