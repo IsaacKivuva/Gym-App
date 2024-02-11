@@ -2,7 +2,10 @@ from flask import Flask
 from flask_cors import CORS
 from flask_jwt_extended import JWTManager
 from .config import Config
-from .extensions import db  # Assuming extensions.py is in the same directory
+from .extensions import db
+from flask_mail import Mail, Message
+
+mail = Mail()
 
 def create_app():
     app = Flask(__name__)
