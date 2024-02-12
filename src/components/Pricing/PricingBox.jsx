@@ -37,7 +37,7 @@ function PricingBox({ img, title, price, text }) {
             text="purchase now"
             arrowColor={`!text-white`}
             cN="pricing-cta"
-            goTo="/contact"
+            goTo="/checkout"
           />
         </div>
       </div>
