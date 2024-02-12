@@ -28,7 +28,7 @@ function Signup() {
         password,
       });
       // Make a POST request to the Flask backend
-      const response = await fetch(`${process.env.REACT_APP_GYM_BACKEND}/members/signup`, {
+      const response = await fetch(`${process.env.REACT_APP_GYM_BACKEND}members/signup`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

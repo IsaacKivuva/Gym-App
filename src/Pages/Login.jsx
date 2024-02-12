@@ -20,20 +20,21 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
-
+     
     try {
-      const response = await fetch("http://localhost:5000/members/login", {
+        const response = await fetch(`${process.env.REACT_APP_GYM_BACKEND}members/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ email, password }),
+       
       });
 
       if (response.ok) {
         const user = await response.json();
         localStorage.setItem("user", JSON.stringify(user));
-        navigate("/workout");
+        navigate("/checkout");
         goTop();
       } else {
         if (response.status === 404) {
@@ -54,7 +55,7 @@ const Login = () => {
       <section className="login-section">
         <div className="login-banner relative justify-center flex">
           <h1 className="text-white absolute bottom-[25px] text-[3rem] font-bold">
-            Sign In
+            Sign Inmm
           </h1>
         </div>
         {/* form  */}
