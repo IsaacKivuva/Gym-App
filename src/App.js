@@ -3,6 +3,8 @@ import Home from "./Pages/Home";
 import Login from "./Pages/Login";
 import SignUp from "./Pages/SignUp";
 import Navbar from "./components/Nav/Navbar";
+import Comments from "./components/Comments";
+import data from "./data.json";
 
 import { Route, Routes } from "react-router-dom";
 import { AuthContextProvider } from "./context/AuthContext";
@@ -24,6 +26,9 @@ import About from "./Pages/About";
 import Checkout from "./Pages/Checkout";
 
 function App() {
+
+  const currentUser = data.currentUser;
+
   return (
     <>
       <AuthContextProvider>
@@ -38,6 +43,7 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="workout" element={<WorkoutPlan />} />
           <Route path="checkout" element={<Checkout />} />
+          <Route path="comments" element={<Comments currentUser={currentUser} />} />
 
           {/* <Route path="schedule" element={<Schedule />}>
             <Route path="monday" element={<Monday />} />
